@@ -1,0 +1,17 @@
+@import "colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $background-medium;
+  font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
+}
