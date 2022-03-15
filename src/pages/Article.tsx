@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
 import "../styles/article.scss";
@@ -16,7 +17,7 @@ export function Article() {
           <button>Pesquisar</button>
         </div>
       </div>
-      <div id="container">
+      <div id="container-article">
         <div id="content-article">
           <h2 className="title">Introdução</h2>
           <p>
@@ -42,14 +43,29 @@ export function Article() {
         <aside id="sidebar">
           <h3 className="title">Populares</h3>
           <ul>
-            <li>Primeiros passos no programa?</li>
-            <li>Como criar uma chave para utilizar os mapas do Google?</li>
-            <li>Como configurar um IP fixo no Computador Servidor?</li>
-            <li>Como configurar a versão rede entre vários computadores?</li>
-            <li>Como Integrar o Programa ao iFood?</li>
+            <li>
+              <a href="#">Primeiros passos no programa?</a>
+            </li>
+            <li>
+              <a href="#">
+                Como criar uma chave para utilizar os mapas do Google?
+              </a>
+            </li>
+            <li>
+              <a href="#">Como configurar um IP fixo no Computador Servidor?</a>
+            </li>
+            <li>
+              <a href="#">
+                Como configurar a versão rede entre vários computadores?
+              </a>
+            </li>
+            <li>
+              <a href="#">Como Integrar o Programa ao iFood?</a>
+            </li>
           </ul>
         </aside>
       </div>
+      <Footer />
     </div>
   );
 }
