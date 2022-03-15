@@ -19,7 +19,7 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 10px 20px;
+      gap: 1px;
       margin-top: 10px;
 
       a {
@@ -28,6 +28,7 @@
         font-size: 14px;
         font-weight: 600;
         transition: color 0.2s;
+        padding: 12px;
 
         &:hover {
           color: $main-color;
@@ -120,6 +121,11 @@
       font-size: 22px;
       cursor: pointer;
       transition: 0.2s;
+      position: fixed;
+      right: 3px;
+      background: $background-medium;
+      padding: 6px 10px;
+      border-radius: 50%;
 
       &:hover {
         color: $second-color;
