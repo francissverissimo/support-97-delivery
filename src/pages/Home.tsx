@@ -23,7 +23,7 @@ export function Home() {
         </div>
       </div>
 
-      <div id="container">
+      <div id="container-home">
         <div id="home-content">
           <div className="title">
             <h2>Iniciando com Zap Delivery</h2>
