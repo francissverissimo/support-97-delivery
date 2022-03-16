@@ -8,14 +8,16 @@ export function Article() {
     <div>
       <Header />
       <div id="banner-article">
-        <div className="support-title">
-          <h1>Suporte e AJuda</h1>
-          <p>Como podemos te servir?</p>
-        </div>
-        <div className="search-bar">
-          <input type="text" />
-          <button>Pesquisar</button>
-        </div>
+        <section>
+          <div className="support-title">
+            <h1>Suporte e AJuda</h1>
+            <p>Como podemos te servir?</p>
+          </div>
+          <div className="search-bar">
+            <input type="text" />
+            <button>Pesquisar</button>
+          </div>
+        </section>
       </div>
       <div id="container-article">
         <div id="content-article">
