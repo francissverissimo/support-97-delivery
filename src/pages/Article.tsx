@@ -10,7 +10,7 @@ export function Article() {
       <div id="banner-article">
         <section>
           <div className="support-title">
-            <h1>Suporte e AJuda</h1>
+            <h1>Suporte e Ajuda</h1>
             <p>Como podemos te servir?</p>
           </div>
           <div className="search-bar">
