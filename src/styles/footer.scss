@@ -1,80 +1,89 @@
 @import "colors.scss";
 
 #footer {
-  margin-top: 80px;
-  font-size: 15px;
+  margin-top: 5rem;
+  font-size: 0.9375rem;
 
-  .footer-links {
+  .columns-footer-links {
     background: #272b2d;
-    margin: auto;
-    padding: 80px 100px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
 
-    .text {
-      color: white;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
+    .footer-links {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 3.75rem 2.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 80rem;
 
-    i {
-      color: $text-main-color;
-      font-size: 26px;
-      margin-right: 16px;
-      margin-top: 7px;
-      opacity: 0.7;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    li {
-      list-style-type: none;
-      margin-bottom: 8px;
-
-      a {
-        text-decoration: none;
-        color: $main-color;
+      .text {
+        color: white;
         font-weight: 500;
+        margin-bottom: 0.625rem;
+      }
+
+      i {
+        color: $text-main-color;
+        font-size: 1.625rem;
+        margin-right: 1rem;
+        margin-top: 0.4375rem;
+        opacity: 0.7;
 
         &:hover {
-          text-decoration: underline;
+          opacity: 1;
+        }
+      }
+
+      li {
+        list-style-type: none;
+        margin-bottom: 0.5rem;
+
+        a {
+          text-decoration: none;
+          color: $main-color;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
   }
 
-  .footer-copy {
-    padding: 50px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .columns-footer-copy {
     background: #1b1e20;
-    
-    .col-1 img {
-      max-width: 150px;
-    }
-    
-    .col-2 {
-      text-align: center;
-      color: #f1f1f1;
-      font-weight: 500;
-    }
 
-    .col-3 {
-      text-align: right;
+    .footer-copy {
+      padding: 3.125rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 82rem;
 
-      i {
-        color: $main-color;
-        background-color: #272b2d;
-        padding: 15px 20px;
-        border-radius:  50%;
-        font-size: 20px;
-        
-        &:hover {
-          color: white;
-          cursor: pointer;
+      .col-1 img {
+        max-width: 9.375rem;
+      }
+
+      .col-2 {
+        text-align: center;
+        color: #f1f1f1;
+      }
+
+      .col-3 {
+        text-align: right;
+
+        i {
+          color: $main-color;
+          background-color: #272b2d;
+          padding: 0.9375rem 1.25rem;
+          border-radius: 50%;
+          font-size: 1.25rem;
+
+          &:hover {
+            color: $background-light;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -82,16 +91,16 @@
 }
 
 @media (max-width: 720px) {
-  #footer .footer-links {
+  #footer .columns-footer-links .footer-links {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 3.75rem;
   }
 
-  #footer .footer-copy {
+  #footer .columns-footer-copy .footer-copy {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
     text-align: center;
   }
 }
