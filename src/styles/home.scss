@@ -2,16 +2,16 @@
 
 #banner-home {
   background: linear-gradient(297deg, $main-color, $second-color 100%);
-  height: 310px;
-  padding: 20px;
+  height: 19.375rem;
+  padding: 1.25rem;
 
   div {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: auto;
     position: relative;
 
     .support-title {
-      color: white;
+      color: $background-light;
       font-weight: 900;
       position: absolute;
       top: 80px;
@@ -19,17 +19,17 @@
       z-index: 2;
 
       h1 {
-        font-size: 40px;
-        margin-bottom: 15px;
+        font-size: 2.25rem;
+        margin-bottom: 0.9375rem;
       }
 
       p {
-        font-size: 18px;
+        font-size: 1.125rem;
       }
     }
 
     img {
-      width: 360px;
+      width: 22.5rem;
       position: absolute;
       right: 100px;
     }
@@ -40,15 +40,15 @@
   margin: auto;
 
   #home-content {
-    padding: 0 20px;
+    padding: 0 2rem;
     .title {
-      font-size: 22px;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px 0px 20px 20px;
+      font-size: 1.375rem;
+      max-width: 75rem;
+      margin: 1.25rem auto;
+      padding: 1.25rem 0 1.25rem 0;
 
       h2 {
-        font-size: 22px;
+        font-size: 1.375rem;
         color: $text-color-light;
       }
     }
@@ -56,16 +56,16 @@
     .cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding: 20px 10px;
-      max-width: 1200px;
+      gap: 1.25rem;
+      max-width: 75rem;
       margin: auto;
     }
   }
 }
 
 #rule-dark {
-  border-bottom: 1px solid $border-medium;
+  margin-top: 1.5rem;
+  border-bottom: 0.0625rem solid $border-medium;
 }
 
 @media (max-width: 720px) {
