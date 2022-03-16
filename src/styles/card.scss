@@ -1,24 +1,26 @@
 @import "colors";
 
 .card {
-  background: white;
+  background: $background-light;
   text-align: center;
   width: auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 10px #dddddd, -1px -1px 10px #dddddd;
+  padding: 1.875rem;
+  border-radius: 0.625rem;
+  box-shadow: 0.0625rem 0.0625rem 0.625rem #dddddd,
+    -0.0625rem -0.0625rem 0.625rem #dddddd;
   cursor: pointer;
   transition: background-color 0.2s;
 
   i {
     color: $main-color;
-    font-size: 30px;
-    margin: 0 0 10px 0;
+    font-size: 1.875rem;
+    margin: 0 0 0.625rem 0;
   }
-  
+
   div {
-    color: #333333;
-    font-size: 16px;
+    color: $text-color-light;
+    font-size: 1rem;
+    font-weight: 500;
   }
 
   &:hover {
