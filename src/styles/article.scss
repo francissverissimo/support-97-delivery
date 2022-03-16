@@ -2,41 +2,52 @@
 
 #banner-article {
   background: linear-gradient(297deg, $main-color, $second-color 100%);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  padding: 20px;
+  padding: 1.25rem 2.25rem;
 
-  .support-title {
-    color: $background-light;
-    font-weight: 900;
-    margin: auto;
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 15px;
-    }
-
-    p {
-      font-size: 18px;
-    }
-  }
-
-  .search-bar {
-    display: flex;
-
-    input {
-      height: 30px;
-      width: 30vw;
-      border: none;
-    }
-
-    button {
-      height: 30px;
-      padding: 0 1rem;
+    .support-title {
       color: $background-light;
-      background: $text-color-light;
-      border: none;
+      font-weight: 900;
+
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.10rem;
+      }
+    }
+
+    .search-bar {
+      display: flex;
+
+      input {
+        height: 1.85rem;
+        width: 100%;
+        border: none;
+      }
+
+      button {
+        height: 1.875rem;
+        padding: 0 1rem;
+        color: $background-light;
+        background: $text-color-light;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          color: $main-color;
+        }
+      }
     }
   }
 }
@@ -44,34 +55,35 @@
 #container-article {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  padding-top: 40px;
-  width: 80vw;
-  margin: auto;
-  gap: 40px;
+  padding: 2.25rem 2.25rem 0 2.25rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2.5rem;
 
   #content-article {
     .title {
-      margin-bottom: 20px;
-      font-size: 26px;
+      margin-bottom: 1.25rem;
+      font-size: 1.625rem;
       color: $text-color-light;
     }
 
     p {
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
     }
   }
 
   #sidebar {
     .title {
-      margin-bottom: 20px;
-      font-size: 24px;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
     }
 
     ul {
       list-style: none;
 
       li {
-        margin-bottom: 10px;
+        margin-bottom: 0.625rem;
         a {
           text-decoration: none;
           color: $text-color-light;
@@ -83,15 +95,21 @@
 
 @media (max-width: 720px) {
   #banner-article {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    section {
+      grid-template-columns: 1fr;
+      gap: 1.875rem 0;
 
-    .support-title {
-      text-align: center;
-    }
+      .support-title {
+        text-align: center;
+      }
 
-    .search-bar {
-      justify-content: center;
+      .search-bar {
+        display: grid;
+        grid-template-columns: 8fr 2fr;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 
@@ -99,7 +117,7 @@
     grid-template-columns: 1fr;
     width: 90vw;
     margin: auto;
-    padding: 40px 20px;
-    gap: 20px;
+    padding: 2.5rem 1.25rem;
+    gap: 1.25rem;
   }
 }
