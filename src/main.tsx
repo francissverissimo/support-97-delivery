@@ -4,6 +4,8 @@ import App from "./App";
 
 import "./services/firebase";
 
+import "./fontawesome/css/all.min.css";
+
 import "./styles/global.scss";
 
 ReactDOM.render(
