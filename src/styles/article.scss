@@ -22,7 +22,7 @@
       }
 
       p {
-        font-size: 1.10rem;
+        font-size: 1.1rem;
       }
     }
 
@@ -89,6 +89,50 @@
           color: $text-color-light;
         }
       }
+    }
+  }
+}
+
+#rate {
+  max-width: 20rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+#rateButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  #useful {
+    color: $second-color;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba($second-color, 0.15);
+    }
+  }
+
+  #useless {
+    color: $danger-color;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba($danger-color, 0.15);
     }
   }
 }
