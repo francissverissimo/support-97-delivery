@@ -1,9 +1,40 @@
+import { useParams } from "react-router-dom";
+import { Markup } from "interweave";
+
+import { firebase, database } from "../services/firebase";
+
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
 import "../styles/article.scss";
+import { useArticle } from "../hooks/useArticle";
+
+type ArticleParams = {
+  doc: string;
+};
 
 export function Article() {
+  const params = useParams() as ArticleParams;
+  const doc = params.doc;
+
+  const article = useArticle(doc);
+
+  async function sortArticleWithUseful() {
+    const docRef = database.collection("articles").doc(doc);
+
+    await docRef.update({
+      "rate.useful": firebase.firestore.FieldValue.increment(1)
+    });
+  }
+
+  async function sortArticleWithUseless() {
+    const docRef = database.collection("articles").doc(doc);
+
+    await docRef.update({
+      "rate.useless": firebase.firestore.FieldValue.increment(1)
+    });
+  }
+
   return (
     <div>
       <Header />
@@ -21,26 +52,8 @@ export function Article() {
       </div>
       <div id="container-article">
         <div id="content-article">
-          <h2 className="title">Introdução</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec erat
-            sed est dapibus porttitor. Morbi id vehicula magna. Donec id viverra
-            sem. Ut commodo, erat in viverra suscipit, est sem vehicula ex.
-          </p>
-          <p>
-            Aliquam mollis sodales lacus, a ornare metus sagittis et. Proin odio
-            leo, vulputate vel eros quis, mattis faucibus ligula. Praesent et
-            tempus sapien. Praesent suscipit in libero ut tincidunt. Nunc augue
-            sem, dictum eu varius eu, finibus et felis. Aenean neque mauris.
-          </p>
-          <p>
-            Donec ultricies est augue, quis cursus erat pellentesque commodo.
-            Maecenas semper vitae tortor nec porta. Nullam rhoncus congue nibh
-            quis finibus. Suspendisse vel mi efficitur, tincidunt odio vel,
-            vestibulum arcu. Praesent aliquam blandit felis, a maximus ex
-            elementum vel. Mauris sed tellus in dolor lobortis pretium. Morbi et
-            mauris et sem scelerisque egestas.
-          </p>
+          <h2 className="title">{article?.title}</h2>
+          <Markup content={article?.body} />
         </div>
         <aside id="sidebar">
           <h3 className="title">Populares</h3>
@@ -66,6 +79,13 @@ export function Article() {
             </li>
           </ul>
         </aside>
+      </div>
+      <div id="rate">
+        <h4>Isso foi útil?</h4>
+        <div id="rateButtons">
+          <i id="useful" className="fa-solid fa-thumbs-up" onClick={sortArticleWithUseful}></i>
+          <i id="useless" className="fa-solid fa-thumbs-down" onClick={sortArticleWithUseless}></i>
+        </div>
       </div>
       <Footer />
     </div>
