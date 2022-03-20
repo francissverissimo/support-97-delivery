@@ -2,9 +2,9 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyANjxnlbqEWv8f086M5LRvRzmDpDVWG6s0",
-  authDomain: "suporte-zap-delivery.firebaseapp.com",
-  projectId: "suporte-zap-delivery"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain:  import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID
 };
 
 firebase.initializeApp(firebaseConfig);
