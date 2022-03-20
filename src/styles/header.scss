@@ -121,10 +121,10 @@
       cursor: pointer;
       transition: 0.2s;
       position: fixed;
-      right: 0.1875rem;
+      right: 0px;
       background: $background-medium;
-      padding: 0.375rem 0.625rem;
-      border-radius: 50%;
+      padding: 0.375rem 0.375rem 0.375rem 0.625rem;
+      border-radius: 50% 0 0 50%;
       z-index: 1;
 
       &:hover {
