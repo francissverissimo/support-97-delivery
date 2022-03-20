@@ -8,37 +8,48 @@ type FirestoreArticle = {
   title: string;
   description: string;
   tags: string[];
-  related: string[];
+  related: [{ id: string; title: string }];
   body: string;
   timestamp: { seconds: number; nanoseconds: number };
   views: number;
   rate: { useful: number; useless: number };
 };
 
-async function addViewToArticle(doc: string) {
-  const docRef = database.collection("articles").doc(doc);
+type PopularArticlesType = Array<{
+  id: string;
+  title: string;
+}>;
+
+async function addViewToArticle(id: string) {
+  const docRef = database.collection("articles").doc(id);
 
   await docRef.update({
     views: firebase.firestore.FieldValue.increment(1)
   });
 }
 
-export function useArticle(doc: string) {
+export function useArticle(id: string) {
   const [article, setArticle] = useState<FirestoreArticle>();
 
+  const [popularArticles, setPopulartArticles] =
+    useState<PopularArticlesType>();
+
   useEffect(() => {
-    const docRef = database.collection("articles").doc(doc);
+    async function retrieveArticle() {
+      const docRef = database.collection("articles").doc(id);
 
-    docRef.get().then(doc => {
-      if (doc.exists) {
-        const docData = doc.data();
-        let firestoreArticle = docData as FirestoreArticle;
-        setArticle(firestoreArticle);
-      }
-    });
+      await docRef.get().then(doc => {
+        if (doc.exists) {
+          const docData = doc.data();
+          let firestoreArticle = docData as FirestoreArticle;
+          setArticle(firestoreArticle);
+        }
+      });
+    }
 
-    addViewToArticle(doc);
-  }, [doc]);
+    retrieveArticle();
+    addViewToArticle(id);
+  }, [id]);
 
-  return article;
+  return { article };
 }
