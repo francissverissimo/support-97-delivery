@@ -1,6 +1,7 @@
 import logoWhite from "../assets/images/long-logo-white.png";
 
 import "../styles/footer.scss";
+import { BackToTopButton } from "./BackToTopButton";
 
 export function Footer() {
   return (
@@ -65,9 +66,7 @@ export function Footer() {
             Empresa Brasileira
           </div>
           <div className="col-3">
-            <a href="#header">
-              <i className="fa fa-arrow-up"></i>
-            </a>
+            <BackToTopButton />
           </div>
         </div>
       </div>
