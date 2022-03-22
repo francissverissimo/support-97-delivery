@@ -1,57 +1,5 @@
 @import "colors";
 
-#banner-article {
-  background: linear-gradient(297deg, $main-color, $second-color 100%);
-  padding: 1.25rem 2.25rem;
-
-  section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    max-width: 75rem;
-    margin-left: auto;
-    margin-right: auto;
-
-    .support-title {
-      color: $background-light;
-      font-weight: 900;
-
-      h1 {
-        font-size: 2.4rem;
-        margin-bottom: 1rem;
-      }
-
-      p {
-        font-size: 1.1rem;
-      }
-    }
-
-    .search-bar {
-      display: flex;
-
-      input {
-        height: 1.85rem;
-        width: 100%;
-        border: none;
-      }
-
-      button {
-        height: 1.875rem;
-        padding: 0 1rem;
-        color: $background-light;
-        background: $text-color-light;
-        border: none;
-        cursor: pointer;
-        transition: 0.2s;
-
-        &:hover {
-          color: $main-color;
-        }
-      }
-    }
-  }
-}
-
 #container-article {
   display: grid;
   grid-template-columns: 2fr 1fr;
