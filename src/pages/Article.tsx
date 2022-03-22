@@ -5,8 +5,9 @@ import { firebase, database } from "../services/firebase";
 import { useArticle } from "../hooks/useArticle";
 import { usePopularArticlesContext } from "../hooks/usePopularArticlesContext";
 
-import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { BannerWithSearch } from "../components/BannerWithSearch";
+import { Footer } from "../components/Footer";
 
 import "../styles/article.scss";
   
@@ -44,18 +45,7 @@ export function Article() {
   return (
     <div>
       <Header />
-      <div id="banner-article">
-        <section>
-          <div className="support-title">
-            <h1>Suporte e Ajuda</h1>
-            <p>Como podemos te servir?</p>
-          </div>
-          <div className="search-bar">
-            <input type="text" />
-            <button>Pesquisar</button>
-          </div>
-        </section>
-      </div>
+      <BannerWithSearch />
       <div id="container-article">
         <div id="content-article">
           <h2 className="title">{article?.title}</h2>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { backToTop } from "../components/BackToTopButton";
 
 import { firebase, database } from "../services/firebase";
 
@@ -15,11 +16,6 @@ type FirestoreArticle = {
   rate: { useful: number; useless: number };
 };
 
-type PopularArticlesType = Array<{
-  id: string;
-  title: string;
-}>;
-
 async function addViewToArticle(id: string) {
   const docRef = database.collection("articles").doc(id);
 
@@ -31,14 +27,12 @@ async function addViewToArticle(id: string) {
 export function useArticle(id: string) {
   const [article, setArticle] = useState<FirestoreArticle>();
 
-  const [popularArticles, setPopulartArticles] =
-    useState<PopularArticlesType>();
-
   useEffect(() => {
     async function retrieveArticle() {
       const docRef = database.collection("articles").doc(id);
 
       await docRef.get().then(doc => {
+        console.log("USE_ARTICLE FEZ UMA QUERY");
         if (doc.exists) {
           const docData = doc.data();
           let firestoreArticle = docData as FirestoreArticle;
@@ -49,6 +43,7 @@ export function useArticle(id: string) {
 
     retrieveArticle();
     addViewToArticle(id);
+    backToTop();
   }, [id]);
 
   return { article };
