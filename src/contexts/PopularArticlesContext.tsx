@@ -74,7 +74,7 @@ export function PopularArticlesContextProvider(
       .get();
 
     if (query.size > 0) {
-      console.log("QUERY REALIZADA!");
+      console.log("POPULAR_ARTICLES FEZ UMA QUERY");
       const arrayPopularArticles = query.docs;
       const result = arrayPopularArticles.map(doc => {
         const docId = doc.id;
