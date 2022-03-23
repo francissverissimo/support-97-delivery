@@ -27,3 +27,23 @@
     background: $background-dark;
   }
 }
+
+@media (max-width: 720px) {
+  .card {
+    padding: 1rem;
+
+    i {
+      font-size: 1.2rem;
+    }
+
+    div {
+      color: $text-color-light;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background: $background-dark;
+    }
+  }
+}

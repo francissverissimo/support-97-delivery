@@ -69,10 +69,34 @@
 }
 
 @media (max-width: 720px) {
-  #banner-home div img {
-    right: -260px;
+  #banner-home {
+    overflow: hidden;
+
+    div {
+      .support-title {
+        max-width: 12rem;
+        left: 0;
+      }
+
+      img {
+        right: -260px;
+      }
+    }
   }
-  #container-home #home-content .cards {
-    grid-template-columns: repeat(2, 1fr);
+
+  #container-home {
+    #home-content {
+      padding: 0 0.8rem;
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+
+        .card {
+          font-size: 0.5rem;
+          padding: 1rem;
+        }
+      }
+    }
   }
 }
