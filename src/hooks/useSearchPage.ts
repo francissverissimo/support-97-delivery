@@ -29,8 +29,9 @@ type ParmsType = {
 };
 
 export function useSearchPage() {
-  const [returnedArticles, setReturnedArticles] =
-    useState<ReturnedArticlesType[]>([]);
+  const [returnedArticles, setReturnedArticles] = useState<
+    ReturnedArticlesType[]
+  >([]);
 
   const parms = useParams() as ParmsType;
 
@@ -42,6 +43,7 @@ export function useSearchPage() {
 
       await articlesRef
         .where("tags", "array-contains-any", keyWordsParms)
+        .limit(20)
         .get()
         .then(querySnapshot => {
           console.log("USE_SEARCH_PAGE FEZ UMA QUERY");
