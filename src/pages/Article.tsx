@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Markup } from "interweave";
+import { Facebook } from "react-content-loader";
 
 import { firebase, database } from "../services/firebase";
 import { useArticle } from "../hooks/useArticle";
@@ -10,12 +11,14 @@ import { BannerWithSearch } from "../components/BannerWithSearch";
 import { Footer } from "../components/Footer";
 
 import "../styles/article.scss";
-  
+import { useState } from "react";
+
 type ArticleParams = {
   id: string;
 };
 
 export function Article() {
+  const [isLoading, setIsLoading] = useState();
   const { popularArticles } = usePopularArticlesContext();
   const navigate = useNavigate();
   const params = useParams() as ArticleParams;
@@ -49,11 +52,24 @@ export function Article() {
       <div id="container-article">
         <div id="content-article">
           <h2 className="title">{article?.title}</h2>
-          <span id="category">Categoria: <a href="">{article?.category}</a></span>
+          <span id="category">
+            Categoria:
+            <a href={`/category/${article?.category.id}`}>
+              {article?.category.title}
+            </a>
+          </span>
+          <Facebook />
           <Markup content={article?.body} />
-          <span id="tags">Tags: {article?.tags.map(e => {
-            return <a key={e} href={`/search/${e}`}>{e}</a>           
-          })}</span>
+          <span id="tags">
+            Tags:{" "}
+            {article?.tags.map(e => {
+              return (
+                <a key={e} href={`/search/${e}`}>
+                  {e}
+                </a>
+              );
+            })}
+          </span>
           <div id="rate">
             <h4>Isso foi útil?</h4>
             <div id="rateButtons">
