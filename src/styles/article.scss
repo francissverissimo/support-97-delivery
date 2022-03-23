@@ -11,19 +11,54 @@
 
   #content-article {
     .title {
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.5rem;
       font-size: 1.625rem;
       color: $text-color-light;
     }
 
+    #category {
+      font-size: 0.875rem;
+      color: $cancel-button;
+
+      a {
+        color: $cancel-button;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.25rem;
+
+        &:hover {
+          color: $main-color-hover;
+        }
+      }
+    }
+
     p {
+      margin-top: 0.625rem;
       margin-bottom: 0.625rem;
 
       a {
         color: $main-color-hover;
         text-decoration: none;
         font-weight: 500;
+        padding: 0.15rem;
 
+        &:hover {
+          color: $main-light-color;
+        }
+      }
+    }
+
+    #tags {
+      color: $cancel-button;
+      font-size: 0.875rem;
+
+      a {
+        color: $cancel-button;
+        font-weight: 500;
+        text-decoration: none;
+        margin-right: 0.5rem;
+        padding: 0.25rem;
+        
         &:hover {
           color: $main-light-color;
         }
