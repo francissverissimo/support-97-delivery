@@ -1,26 +1,22 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Markup } from "interweave";
 import { Facebook } from "react-content-loader";
-
 import { firebase, database } from "../services/firebase";
 import { useArticle } from "../hooks/useArticle";
 import { usePopularArticlesContext } from "../hooks/usePopularArticlesContext";
-
 import { Header } from "../components/Header";
 import { BannerWithSearch } from "../components/BannerWithSearch";
 import { Footer } from "../components/Footer";
-
 import "../styles/article.scss";
-import { useState } from "react";
 
 type ArticleParams = {
   id: string;
 };
 
 export function Article() {
-  const [isLoading, setIsLoading] = useState();
-  const { popularArticles } = usePopularArticlesContext();
   const navigate = useNavigate();
+  const { popularArticles } = usePopularArticlesContext();
   const params = useParams() as ArticleParams;
   const id = params.id;
   const { article } = useArticle(id);
@@ -29,7 +25,7 @@ export function Article() {
     const docRef = database.collection("articles").doc(id);
 
     await docRef.update({
-      "rate.useful": firebase.firestore.FieldValue.increment(1)
+      "rate.useful": firebase.firestore.FieldValue.increment(1),
     });
   }
 
@@ -37,7 +33,7 @@ export function Article() {
     const docRef = database.collection("articles").doc(id);
 
     await docRef.update({
-      "rate.useless": firebase.firestore.FieldValue.increment(1)
+      "rate.useless": firebase.firestore.FieldValue.increment(1),
     });
   }
 
@@ -49,68 +45,70 @@ export function Article() {
     <div>
       <Header />
       <BannerWithSearch />
-      <div id="container-article">
-        <div id="content-article">
-          <h2 className="title">{article?.title}</h2>
-          <span id="category">
-            Categoria:
-            <a href={`/category/${article?.category.id}`}>
-              {article?.category.title}
-            </a>
-          </span>
-          <Facebook />
-          <Markup content={article?.body} />
-          <span id="tags">
-            Tags:{" "}
-            {article?.tags.map(e => {
-              return (
-                <a key={e} href={`/search/${e}`}>
-                  {e}
-                </a>
-              );
-            })}
-          </span>
-          <div id="rate">
-            <h4>Isso foi útil?</h4>
-            <div id="rateButtons">
-              <i
-                id="useful"
-                className="fa-solid fa-thumbs-up"
-                onClick={sortArticleWithUseful}
-              ></i>
-              <i
-                id="useless"
-                className="fa-solid fa-thumbs-down"
-                onClick={sortArticleWithUseless}
-              ></i>
+
+      {!article ? (
+        <Facebook />
+      ) : (
+        <div id="container-article">
+          <div id="content-article">
+            <h2 className="title">{article?.title}</h2>
+            <span id="category">
+              Categoria:
+              <a href={`/category/${article?.category}`}>{article?.category}</a>
+            </span>
+            <Markup content={article?.body} />
+            <span id="tags">
+              Tags:{" "}
+              {article?.tags.map((e) => {
+                return (
+                  <a key={e} href={`/search/${e}`}>
+                    {e}
+                  </a>
+                );
+              })}
+            </span>
+            <div id="rate">
+              <h4>Isso foi útil?</h4>
+              <div id="rateButtons">
+                <i
+                  id="useful"
+                  className="fa-solid fa-thumbs-up"
+                  onClick={sortArticleWithUseful}
+                ></i>
+                <i
+                  id="useless"
+                  className="fa-solid fa-thumbs-down"
+                  onClick={sortArticleWithUseless}
+                ></i>
+              </div>
             </div>
           </div>
+          <aside id="sidebar">
+            <h3 className="title">Populares</h3>
+            <ul>
+              {popularArticles?.map((e) => {
+                return (
+                  <li key={e.id}>
+                    <a onClick={() => browseAmongRelated(e.id)}>{e.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
+            <h3 className="title">Relacionados</h3>
+            <ul>
+              {article?.related.map((relatedArticle) => {
+                return (
+                  <li key={relatedArticle.id}>
+                    <a onClick={() => browseAmongRelated(relatedArticle.id)}>
+                      {relatedArticle.title}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </aside>
         </div>
-        <aside id="sidebar">
-          <h3 className="title">Populares</h3>
-          <ul>
-            {popularArticles?.map(e => {
-              return (
-                <li key={e.id}>
-                  <a onClick={() => browseAmongRelated(e.id)}>{e.title}</a>
-                </li>
-              );
-            })}
-          </ul>
-          <h3 className="title">Relacionados</h3>
-          <ul>
-            {article?.related.map(relatedArticle => {
-              return (
-                <li key={relatedArticle.id}>
-                  <a onClick={() => browseAmongRelated(relatedArticle.id)}>
-                    {relatedArticle.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </aside>
-      </div>
+      )}
       <Footer />
     </div>
   );
