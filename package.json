@@ -1,5 +1,5 @@
 {
-  "name": "support-zap-delivery",
+  "name": "support-97-delivery",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,20 +8,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "firebase": "8.10.0",
+    "firebase": "8.10.1",
     "interweave": "^13.0.0",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-content-loader": "^6.2.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-native-svg": "^12.3.0",
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
-    "@vitejs/plugin-react": "^1.0.7",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.1",
     "sass": "^1.49.9",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "vite": "^3.0.7"
   }
 }
