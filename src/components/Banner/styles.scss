@@ -1,16 +1,15 @@
-@import "colors";
+@import "../../styles/colors";
 
-#banner-with-search {
+#banner {
   background: linear-gradient(297deg, $main-color, $second-color 100%);
-  padding: 1.25rem 2.25rem;
 
   section {
+    padding: 1.25rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     max-width: 75rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: auto;
 
     .support-title {
       color: $background-light;
@@ -55,20 +54,28 @@
   }
 }
 
-@media (max-width: 720px) {
-  #banner-with-search {
+@media (max-width: 768px) {
+  #banner {
     section {
       grid-template-columns: 1fr;
-      gap: 1.875rem 0;
+      gap: 1.5rem 0;
 
       .support-title {
         text-align: center;
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
       }
 
       .search-bar {
         display: grid;
         grid-template-columns: 8fr 2fr;
-        width: 80%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
       }

@@ -1,29 +1,24 @@
-@import "colors.scss";
+@import "../../styles/colors";
 
 #footer {
-  margin-top: 5rem;
-  font-size: 0.9375rem;
-
   .columns-footer-links {
     background: #272b2d;
 
     .footer-links {
-      margin-left: auto;
-      margin-right: auto;
-      padding: 3.75rem 2.25rem;
+      padding: 3rem 1.25rem;
+      margin-inline: auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      max-width: 80rem;
+      max-width: 75rem;
 
       .text {
         color: white;
         font-weight: 500;
-        margin-bottom: 0.625rem;
+        margin-bottom: 0.6rem;
       }
 
-      i {
+      svg {
         color: $text-main-color;
-        font-size: 1.625rem;
         margin-right: 1rem;
         margin-top: 0.4375rem;
         opacity: 0.7;
@@ -39,7 +34,7 @@
 
         a {
           text-decoration: none;
-          color: $main-color;
+          color: $second-color;
           font-weight: 500;
 
           &:hover {
@@ -54,31 +49,41 @@
     background: #1b1e20;
 
     .footer-copy {
-      padding: 3.125rem;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 3rem 1.25rem;
+      margin-inline: auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      max-width: 82rem;
+      max-width: 75rem;
 
       .col-1 img {
-        max-width: 9.375rem;
+        max-width: 9rem;
       }
 
       .col-2 {
         text-align: center;
         color: #f1f1f1;
+
+        a {
+          text-decoration: none;
+          color: $second-color;
+          font-weight: 600;
+          font-size: 1rem;
+          display: inline-block;
+          margin-right: 0.4rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
 
       .col-3 {
         text-align: right;
 
-        i {
-          color: $main-color;
+        svg {
+          color: $second-color;
           background-color: #272b2d;
-          padding: 0.9375rem 1.25rem;
           border-radius: 50%;
-          font-size: 1.25rem;
 
           &:hover {
             color: $background-light;
@@ -90,7 +95,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   #footer .columns-footer-links .footer-links {
     display: flex;
     flex-direction: column;

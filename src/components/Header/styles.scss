@@ -1,8 +1,8 @@
-@import "colors";
+@import "../../styles/colors";
 
 #header {
-  padding: 1rem 1.75rem;
-  max-width: 80rem;
+  padding: 1rem 1.25rem;
+  max-width: 75rem;
   margin: auto;
 
   section {
@@ -12,6 +12,7 @@
 
     img {
       margin-right: 1.25rem;
+      width: 9rem;
     }
 
     .nav {
@@ -77,7 +78,9 @@
           flex-direction: column;
 
           li {
-            padding: 0.625rem 0.9375rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
             border-radius: 0.375rem;
 
             * {
@@ -88,9 +91,9 @@
               text-decoration: none;
             }
 
-            i {
+            svg {
               margin-right: 0.625rem;
-              font-size: 0.9375rem;
+              font-size: 1rem;
             }
 
             &:hover {
@@ -117,15 +120,12 @@
     .nav-mobile-button {
       color: $text-color-light;
       display: none;
-      font-size: 1.375rem;
+      font-size: 1.3rem;
       cursor: pointer;
-      transition: 0.2s;
-      position: fixed;
-      right: 0px;
+      transition: 200ms;
       background: $background-medium;
-      padding: 0.375rem 0.375rem 0.375rem 0.625rem;
-      border-radius: 50% 0 0 50%;
-      z-index: 1;
+      padding: 0.4rem;
+      border-radius: 0.1rem;
 
       &:hover {
         color: $second-color;
@@ -137,10 +137,14 @@
 #rule-light {
   border-bottom: 0.0625rem solid $background-dark;
   width: 80%;
-  margin: 0.625rem  auto;
+  margin: 0.625rem auto;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
+  #header {
+    padding-inline: 1rem;
+  }
+
   #header section .nav-mobile-button {
     display: block;
   }

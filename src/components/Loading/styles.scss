@@ -1,0 +1,44 @@
+@import "../../styles/colors";
+
+#loading {
+  display: flex;
+  justify-content: center;
+  padding-block: 3rem;
+  padding-inline: 1rem;
+
+  .circle-notch {
+    color: $main-color;
+    font-size: 10rem;
+    animation: rotating 1s linear infinite;
+  }
+
+  .div-middle {
+    align-self: flex-end;
+
+    .circle {
+      color: $main-light-color;
+      font-size: 2rem;
+      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  }
+
+  .circle-dashed {
+    color: $second-color;
+    font-size: 10rem;
+    animation: rotating 1s linear infinite;
+  }
+}
+
+@keyframes rotating {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

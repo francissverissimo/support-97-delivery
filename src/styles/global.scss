@@ -4,6 +4,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-color: $main-color $background-medium;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $background-medium;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $main-color;
+  border-radius: 2rem;
+  border: 3px solid $background-medium;
 }
 
 html {

@@ -1,34 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { treatKeyWords } from "../../utils/handleUtils";
+import "./styles.scss";
 
-import "../styles/bannerWithSearch.scss";
-
-export function cleanKeyWords(keyWords: string) {
-  return keyWords
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // remover acentos
-    .replace(/([^\w]+|\s+)/g, " ") // remover caracteres especiais
-    .split(" ")
-    .filter(e => {
-      return e.length > 3;
-    });
-}
-
-export function BannerWithSearch() {
+export function Banner() {
   const [newSearch, setNewSearch] = useState("");
   const navigate = useNavigate();
 
   function searchKeyWords() {
     if (newSearch.trim() !== "") {
-      const tratedKeyWords = cleanKeyWords(newSearch);
+      const tratedKeyWords = treatKeyWords(newSearch);
       navigate(`/search/${tratedKeyWords}`);
     }
   }
 
   return (
-    <div id="banner-with-search">
+    <div id="banner">
       <section>
         <div className="support-title">
           <h1>Suporte e Ajuda</h1>
@@ -37,7 +24,7 @@ export function BannerWithSearch() {
         <div className="search-bar">
           <input
             type="text"
-            onChange={event => setNewSearch(event.target.value)}
+            onChange={(event) => setNewSearch(event.target.value)}
             value={newSearch}
           />
           <button onClick={searchKeyWords}>Pesquisar</button>
