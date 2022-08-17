@@ -1,0 +1,40 @@
+@import "../../styles/colors";
+
+#container-home {
+  #home-content {
+    padding-inline: 1.25rem;
+    padding-bottom: 4rem;
+    max-width: 75rem;
+    margin-inline: auto;
+
+    .title {
+      margin-block: 1rem;
+      padding-block: 1.25rem;
+
+      h2 {
+        font-size: 1.2rem;
+        color: $text-color-light;
+      }
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 75rem;
+      // margin: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #container-home {
+    #home-content {
+      padding-inline: 1.25rem;
+
+      .cards {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+  }
+}

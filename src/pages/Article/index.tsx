@@ -1,14 +1,13 @@
-import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Markup } from "interweave";
-import { Facebook } from "react-content-loader";
-import { firebase, database } from "../services/firebase";
-import { useArticle } from "../hooks/useArticle";
-import { usePopularArticlesContext } from "../hooks/usePopularArticlesContext";
-import { Header } from "../components/Header";
-import { BannerWithSearch } from "../components/BannerWithSearch";
-import { Footer } from "../components/Footer";
-import "../styles/article.scss";
+import { firebase, database } from "../../services/firebase";
+import { usePopularArticlesContext } from "../../hooks/usePopularArticlesContext";
+import { Header } from "../../components/Header";
+import { Banner } from "../../components/Banner";
+import { Footer } from "../../components/Footer";
+import { Loading } from "../../components/Loading";
+import "./styles.scss";
+import { useArticle } from "../../hooks/useArticle";
 
 type ArticleParams = {
   id: string;
@@ -42,24 +41,26 @@ export function Article() {
   }
 
   return (
-    <div>
+    <>
       <Header />
-      <BannerWithSearch />
+      <Banner />
 
       {!article ? (
-        <Facebook />
+        <Loading />
       ) : (
         <div id="container-article">
           <div id="content-article">
-            <h2 className="title">{article?.title}</h2>
+            <h2 className="title">{article.title}</h2>
             <span id="category">
               Categoria:
-              <a href={`/category/${article?.category}`}>{article?.category}</a>
+              <a href={`/category/${article.category.id}`}>
+                {article.category.title}
+              </a>
             </span>
-            <Markup content={article?.body} />
+            <Markup content={article.body} />
             <span id="tags">
-              Tags:{" "}
-              {article?.tags.map((e) => {
+              {"Tags: "}
+              {article.tags.map((e) => {
                 return (
                   <a key={e} href={`/search/${e}`}>
                     {e}
@@ -96,7 +97,7 @@ export function Article() {
             </ul>
             <h3 className="title">Relacionados</h3>
             <ul>
-              {article?.related.map((relatedArticle) => {
+              {article.related.map((relatedArticle) => {
                 return (
                   <li key={relatedArticle.id}>
                     <a onClick={() => browseAmongRelated(relatedArticle.id)}>
@@ -110,6 +111,6 @@ export function Article() {
         </div>
       )}
       <Footer />
-    </div>
+    </>
   );
 }

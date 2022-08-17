@@ -1,114 +1,118 @@
-import { Card } from "../components/Card";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-
-import "../styles/home.scss";
-
-import bannerImg from "../assets/images/banner-home-img.png";
+import { Header } from "../../components/Header";
+import { Banner } from "../../components/Banner";
+import { Card } from "../../components/Card";
+import { Footer } from "../../components/Footer";
+import {
+  ChatCircle,
+  Clock,
+  CreditCard,
+  CurrencyCircleDollar,
+  GearSix,
+  MagicWand,
+  MapPin,
+  Megaphone,
+  Money,
+  PaintBrushBroad,
+  QrCode,
+  Receipt,
+  Storefront,
+  UserCirclePlus,
+  WhatsappLogo,
+} from "phosphor-react";
+import "./styles.scss";
 
 export function Home() {
   return (
     <div>
       <Header />
-      <div id="banner-home">
-        <div>
-          <div className="support-title">
-            <h1>Suporte e Ajuda</h1>
-            <p>Como podemos te servir?</p>
-          </div>
-          <img
-            src={bannerImg}
-            alt="2 atendentes de uma cafeteria(estilo cartoon)"
-          />
-        </div>
-      </div>
-
+      <Banner />
       <div id="container-home">
         <div id="home-content">
           <div className="title">
-            <h2>Iniciando com Zap Delivery</h2>
+            <h2>Iniciando com 97 Delivery</h2>
           </div>
           <div className="cards">
             <Card
-              iconClass={"fa fa-user-plus"}
+              icon={<UserCirclePlus weight="fill" />}
               text="Como criar minha Conta"
               id={"como-criar-minha-conta"}
             />
+
             <Card
-              iconClass={"fa fa-magic"}
+              icon={<MagicWand weight="fill" />}
               text="Como criar meu App"
               id={"como-criar-meu-app"}
             />
+
             <Card
-              iconClass={"fa fa-bullhorn"}
+              icon={<Megaphone weight="fill" />}
               text="Como divulgar minha loja"
               id={"como-divulgar-minha-loja"}
             />
           </div>
-
-          <div id="rule-dark"></div>
 
           <div className="title">
             <h2>Configurando o Meu Negócio</h2>
           </div>
           <div className="cards">
             <Card
-              iconClass={"fa fa-store"}
+              icon={<Storefront weight="fill" />}
               text={"Editar minhas informações"}
               id={"editar-minhas-informacoes"}
             />
+
             <Card
-              iconClass={"fa fa-brush"}
+              icon={<PaintBrushBroad weight="fill" />}
               text={"Temas e Cores"}
               id={"temas-e-cores"}
             />
             <Card
-              iconClass={"fa fa-qrcode"}
+              icon={<QrCode weight="fill" />}
               text={"Métodos de Operação"}
               id={"metodos-de-operacao"}
             />
             <Card
-              iconClass={"fa fa-map-marker-alt"}
+              icon={<MapPin weight="fill" />}
               text={"Cadastrar Meu Enderenço"}
-              id={"cadastrar-meu-enderenco"}
+              id={"cadastrar-meu-endereco"}
             />
             <Card
-              iconClass={"fa fa-comment"}
+              icon={<ChatCircle weight="fill" />}
               text={"Contatos e Mídias Sociais"}
               id={"contatos-e-midias-sociais"}
             />
             <Card
-              iconClass={"fa fa-clock-four"}
+              icon={<Clock weight="fill" />}
               text={"Horários de Funcionamento"}
               id={"horarios-de-funcionamento"}
             />
             <Card
-              iconClass={"fa fa-money-bill"}
+              icon={<Money weight="fill" />}
               text={"Taxas de Entrega"}
               id={"taxas-de-entrega"}
             />
             <Card
-              iconClass={"fa fa-hand-holding-dollar"}
+              icon={<CurrencyCircleDollar weight="fill" />}
               text={"Formas de Pagamento"}
               id={"formas-de-pagamento"}
             />
             <Card
-              iconClass={"fa fa-credit-card-alt"}
+              icon={<CreditCard weight="fill" />}
               text={"Pagamento Online"}
               id={"pagamento-online"}
             />
             <Card
-              iconClass={"fa fa-receipt"}
+              icon={<Receipt weight="fill" />}
               text={"Impressão de Comandas"}
               id={"impressao-de-comandas"}
             />
             <Card
-              iconClass={"fa fa-phone"}
+              icon={<WhatsappLogo weight="fill" />}
               text={"Integração com WhatsApp"}
               id={"integracao-com-whatsapp"}
             />
             <Card
-              iconClass={"fa fa-cogs"}
+              icon={<GearSix weight="fill" />}
               text={"Preferências"}
               id={"preferencias"}
             />

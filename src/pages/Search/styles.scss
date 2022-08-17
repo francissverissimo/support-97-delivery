@@ -1,0 +1,28 @@
+@import "../../styles/colors";
+
+#search-page-content {
+  background-color: $background-medium;
+  padding: 2rem 1.25rem;
+  max-width: 75rem;
+  margin-inline: auto;
+
+  #numberResults {
+    background: $cancel-button;
+    color: $text-main-color;
+    padding: 0.25rem 1rem;
+    margin-bottom: 1rem;
+    max-width: 10rem;
+    font-weight: 500;
+    font-size: 1.15rem;
+    border-radius: 0.35rem;
+    text-align: center;
+
+    &.green {
+      background: $second-color;
+    }
+
+    &.red {
+      background: $danger-color-hover;
+    }
+  }
+}
