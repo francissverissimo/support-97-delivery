@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { Article } from "./pages/Article";
-import { SearchPage } from "./pages/SearchPage";
+import { SearchPage } from "./pages/Search";
 
 import { PopularArticlesContextProvider } from "./contexts/PopularArticlesContext";
 

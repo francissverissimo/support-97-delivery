@@ -1,27 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import { cleanKeyWords } from "../components/BannerWithSearch";
-
 import { database } from "../services/firebase";
+import { FirestoreArticle } from "../types/handleTypes";
+import { treatKeyWords } from "../utils/handleUtils";
 
 type ReturnedArticlesType = {
   id: string;
   title: string;
   description: string;
-};
-
-type FirebaseArticles = {
-  author: string;
-  category: string;
-  title: string;
-  description: string;
-  tags: string[];
-  related: [{ id: string; title: string }];
-  body: string;
-  timestamp: { seconds: number; nanoseconds: number };
-  views: number;
-  rate: { useful: number; useless: number };
 };
 
 type ParmsType = {
@@ -35,7 +21,7 @@ export function useSearchPage() {
 
   const parms = useParams() as ParmsType;
 
-  const keyWordsParms = cleanKeyWords(parms.keyWords);
+  const keyWordsParms = treatKeyWords(parms.keyWords);
 
   useEffect(() => {
     async function doQuery() {
@@ -45,11 +31,11 @@ export function useSearchPage() {
         .where("tags", "array-contains-any", keyWordsParms)
         .limit(20)
         .get()
-        .then(querySnapshot => {
+        .then((querySnapshot) => {
           console.log("USE_SEARCH_PAGE FEZ UMA QUERY");
-          const result = querySnapshot.docs.map(doc => {
+          const result = querySnapshot.docs.map((doc) => {
             const docId = doc.id;
-            const allData = doc.data() as FirebaseArticles;
+            const allData = doc.data() as FirestoreArticle;
             const docTitle = allData.title;
             const docDescription = allData.description;
 
