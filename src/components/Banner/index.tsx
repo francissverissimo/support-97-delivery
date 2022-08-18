@@ -1,17 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { treatKeyWords } from "../../utils/handleUtils";
 import "./styles.scss";
 
-export function Banner() {
-  const [newSearch, setNewSearch] = useState("");
-  const navigate = useNavigate();
+type Params = { keyWords: string };
 
-  function searchKeyWords() {
-    if (newSearch.trim() !== "") {
-      const tratedKeyWords = treatKeyWords(newSearch);
-      navigate(`/search/${tratedKeyWords}`);
-    }
+export function Banner() {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const params = useParams() as Params;
+
+  function browsePageSearchWithKeywords() {
+    if (search.trim() === "" || search.length <= 3 || params.keyWords == search)
+      return;
+
+    const tratedKeyWords = treatKeyWords(search);
+
+    navigate(`/search/${tratedKeyWords}`);
   }
 
   return (
@@ -21,13 +26,22 @@ export function Banner() {
           <h1>Suporte e Ajuda</h1>
           <p>Como podemos te servir?</p>
         </div>
+
         <div className="search-bar">
-          <input
-            type="text"
-            onChange={(event) => setNewSearch(event.target.value)}
-            value={newSearch}
-          />
-          <button onClick={searchKeyWords}>Pesquisar</button>
+          <div>
+            <input
+              type="text"
+              onChange={(event) => setSearch(event.target.value)}
+              value={search}
+            />
+            <button onClick={browsePageSearchWithKeywords}>Pesquisar</button>
+          </div>
+
+          {search.length > 0 && search.length <= 3 && (
+            <p id="input-warnig">
+              {"Digite pelo menos 3 caracteres para pesquisar..."}
+            </p>
+          )}
         </div>
       </section>
     </div>
