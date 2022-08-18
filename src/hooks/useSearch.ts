@@ -10,21 +10,23 @@ type ReturnedArticlesType = {
   description: string;
 };
 
-type ParmsType = {
+type Parms = {
   keyWords: string;
 };
 
-export function useSearchPage() {
+export function useSearch() {
   const [returnedArticles, setReturnedArticles] = useState<
-    ReturnedArticlesType[]
-  >([]);
+    ReturnedArticlesType[] | undefined
+  >(undefined);
 
-  const parms = useParams() as ParmsType;
+  const parms = useParams() as Parms;
 
   const keyWordsParms = treatKeyWords(parms.keyWords);
 
   useEffect(() => {
     async function doQuery() {
+      returnedArticles && setReturnedArticles(undefined);
+
       const articlesRef = database.collection("articles");
 
       await articlesRef
