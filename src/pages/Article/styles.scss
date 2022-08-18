@@ -1,13 +1,13 @@
 @import "../../styles/colors";
 
 #container-article {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding: 2.25rem 2.25rem 0 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 1.25rem;
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  gap: 2.5rem;
+  gap: 1rem;
 
   #content-article {
     .title {
@@ -49,15 +49,18 @@
     }
 
     #tags {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      column-gap: 0.5rem;
       color: $cancel-button;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
 
       a {
         color: $cancel-button;
         font-weight: 500;
         text-decoration: none;
-        margin-right: 0.5rem;
-        padding: 0.25rem;
+        padding: 0.5rem 0.25rem;
 
         &:hover {
           color: $main-light-color;
@@ -67,24 +70,29 @@
   }
 
   #sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    gap: 1rem;
+
     .title {
-      margin-bottom: 0.25rem;
-      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
     }
 
     ul {
       list-style: none;
-      margin-bottom: 2rem;
 
       li {
-        margin-bottom: 0.625rem;
+        margin-bottom: 0.6rem;
+
         a {
           text-decoration: none;
           color: $text-color-light;
           cursor: pointer;
 
           &:hover {
-            font-weight: 500;
+            text-decoration: underline;
           }
         }
       }
@@ -102,41 +110,39 @@
   h4 {
     margin-bottom: 0.5rem;
   }
-}
 
-#rateButtons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  #rateButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
 
-  #useful {
-    color: $second-color;
-    font-size: 1.5rem;
-    padding: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s;
+    #usefull {
+      color: rgba($second-color, 0.7);
+      font-size: 1.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
 
-    &:hover {
-      background: rgba($second-color, 0.15);
+      &:hover {
+        color: $second-color;
+      }
+    }
+
+    #useless {
+      color: rgba($danger-color, 0.7);
+      font-size: 1.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        color: $danger-color;
+      }
     }
   }
-
-  #useless {
-    color: $danger-color;
-    font-size: 1.5rem;
-    padding: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.2s;
-
-    &:hover {
-      background: rgba($danger-color, 0.15);
-    }
-  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   #banner-article {
     section {
       grid-template-columns: 1fr;
@@ -157,10 +163,7 @@
   }
 
   #container-article {
-    grid-template-columns: 1fr;
-    width: 90vw;
-    margin: auto;
-    padding: 2.5rem 1.25rem;
-    gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
   }
 }

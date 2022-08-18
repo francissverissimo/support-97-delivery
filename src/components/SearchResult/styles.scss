@@ -1,11 +1,13 @@
+@import "../../styles/colors";
+
 #search-result {
   box-shadow: 0.1875rem 0.1875rem 0.3125rem $border-medium,
     -0.1875rem -0.18755rem 0.3125rem $border-medium;
-  border-radius: 0.75rem;
-  margin-bottom: 1.25rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
   background: $background-light;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 200ms;
 
   .article {
     padding: 1rem;
