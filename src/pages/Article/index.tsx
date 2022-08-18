@@ -1,13 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Markup } from "interweave";
 import { firebase, database } from "../../services/firebase";
 import { usePopularArticlesContext } from "../../hooks/usePopularArticlesContext";
+import { useArticle } from "../../hooks/useArticle";
+import { Markup } from "interweave";
 import { Header } from "../../components/Header";
 import { Banner } from "../../components/Banner";
 import { Footer } from "../../components/Footer";
 import { Loading } from "../../components/Loading";
+import { ThumbsDown, ThumbsUp } from "phosphor-react";
 import "./styles.scss";
-import { useArticle } from "../../hooks/useArticle";
 
 type ArticleParams = {
   id: string;
@@ -68,45 +69,53 @@ export function Article() {
                 );
               })}
             </span>
+
             <div id="rate">
               <h4>Isso foi útil?</h4>
               <div id="rateButtons">
-                <i
-                  id="useful"
-                  className="fa-solid fa-thumbs-up"
+                <ThumbsUp
+                  id="usefull"
+                  size={32}
                   onClick={sortArticleWithUseful}
-                ></i>
-                <i
+                  weight="fill"
+                />
+                <ThumbsDown
                   id="useless"
-                  className="fa-solid fa-thumbs-down"
+                  size={32}
                   onClick={sortArticleWithUseless}
-                ></i>
+                  weight="fill"
+                />
               </div>
             </div>
           </div>
+
           <aside id="sidebar">
-            <h3 className="title">Populares</h3>
-            <ul>
-              {popularArticles?.map((e) => {
-                return (
-                  <li key={e.id}>
-                    <a onClick={() => browseAmongRelated(e.id)}>{e.title}</a>
-                  </li>
-                );
-              })}
-            </ul>
-            <h3 className="title">Relacionados</h3>
-            <ul>
-              {article.related.map((relatedArticle) => {
-                return (
-                  <li key={relatedArticle.id}>
-                    <a onClick={() => browseAmongRelated(relatedArticle.id)}>
-                      {relatedArticle.title}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <div>
+              <h3 className="title">Populares</h3>
+              <ul>
+                {popularArticles?.map(({ id, title }) => {
+                  return (
+                    <li key={id}>
+                      <a onClick={() => browseAmongRelated(id)}>{title}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div>
+              <h3 className="title">Relacionados</h3>
+              <ul>
+                {article.related.map((relatedArticle) => {
+                  return (
+                    <li key={relatedArticle.id}>
+                      <a onClick={() => browseAmongRelated(relatedArticle.id)}>
+                        {relatedArticle.title}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </aside>
         </div>
       )}
