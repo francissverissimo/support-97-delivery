@@ -1,7 +1,12 @@
 import { scrollToTop } from "../../utils/handleUtils";
 import logoWhite from "../../assets/images/logo-white.svg";
 import "./styles.scss";
-import { CaretUp, FacebookLogo, InstagramLogo, YoutubeLogo } from "phosphor-react";
+import {
+  CaretUp,
+  FacebookLogo,
+  InstagramLogo,
+  YoutubeLogo,
+} from "phosphor-react";
 
 export function Footer() {
   return (
@@ -11,51 +16,54 @@ export function Footer() {
           <div className="col-1">
             <div className="text">Para você</div>
             <li>
-              <a href="#">Quero meu app</a>
+              <a>Quero meu app</a>
             </li>
             <li>
-              <a href="#">Como funciona?</a>
+              <a>Como funciona?</a>
             </li>
             <li>
-              <a href="#">Perguntas frequentes</a>
+              <a>Perguntas frequentes</a>
             </li>
             <li>
-              <a href="#">Preços</a>
+              <a>Preços</a>
             </li>
             <li>
-              <a href="#">Suporte</a>
+              <a>Suporte</a>
             </li>
           </div>
           <div className="col-2">
             <div className="text">Informaçôes</div>
             <li>
-              <a href="">Termos de uso</a>
+              <a>Termos de uso</a>
             </li>
             <li>
-              <a href="#">Política de privacidade</a>
+              <a>Política de privacidade</a>
             </li>
           </div>
           <div className="col-3">
             <div className="text">Siga-nos</div>
-            <a href="#">
+            <a>
               <FacebookLogo size={32} />
             </a>
-            <a href="#">
+            <a>
               <InstagramLogo size={32} />
             </a>
-            <a href="#">
+            <a>
               <YoutubeLogo size={32} />
             </a>
           </div>
         </div>
       </div>
+
       <div className="columns-footer-copy">
         <div className="footer-copy">
           <div className="col-1">
-            <img src={logoWhite} alt="" />
+            <a href="/">
+              <img src={logoWhite} alt="" />
+            </a>
           </div>
           <div className="col-2">
-            <a href="https://francissportfolio.vercel.app/">
+            <a target="_blank" href="https://francissportfolio.vercel.app/">
               {"Francis Verissimo "}
             </a>
             {"© 2022"}
