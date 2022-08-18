@@ -24,7 +24,7 @@
 
       a {
         text-decoration: none;
-        color: $text-color-light;
+        color: $bg-dark;
         font-size: 0.875rem;
         font-weight: 600;
         transition: color 0.2s;
@@ -84,7 +84,7 @@
             border-radius: 0.375rem;
 
             * {
-              color: $button-color;
+              color: $light-color;
             }
 
             a {
@@ -97,7 +97,7 @@
             }
 
             &:hover {
-              background: $background-dark;
+              background: $bg-light;
 
               * {
                 color: $second-color;
@@ -118,12 +118,12 @@
     }
 
     .nav-mobile-button {
-      color: $text-color-light;
+      color: $bg-dark;
       display: none;
       font-size: 1.3rem;
       cursor: pointer;
       transition: 200ms;
-      background: $background-medium;
+      background: $bg-medium;
       padding: 0.4rem;
       border-radius: 0.1rem;
 
@@ -135,7 +135,7 @@
 }
 
 #rule-light {
-  border-bottom: 0.0625rem solid $background-dark;
+  border-bottom: 0.0625rem solid $bg-light;
   width: 80%;
   margin: 0.625rem auto;
 }

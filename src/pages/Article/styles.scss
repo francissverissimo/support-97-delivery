@@ -13,15 +13,15 @@
     .title {
       margin-bottom: 0.5rem;
       font-size: 1.625rem;
-      color: $text-color-light;
+      color: $bg-dark;
     }
 
     #category {
       font-size: 0.875rem;
-      color: $cancel-button;
+      color: $semi-dark-color;
 
       a {
-        color: $cancel-button;
+        color: $semi-dark-color;
         text-decoration: none;
         font-weight: 500;
         padding: 0.25rem;
@@ -43,7 +43,7 @@
         padding: 0.15rem;
 
         &:hover {
-          color: $main-light-color;
+          color: $main-color-light;
         }
       }
     }
@@ -53,17 +53,17 @@
       align-items: center;
       flex-wrap: wrap;
       column-gap: 0.5rem;
-      color: $cancel-button;
+      color: $semi-dark-color;
       font-size: 0.8rem;
 
       a {
-        color: $cancel-button;
+        color: $semi-dark-color;
         font-weight: 500;
         text-decoration: none;
         padding: 0.5rem 0.25rem;
 
         &:hover {
-          color: $main-light-color;
+          color: $main-color-light;
         }
       }
     }
@@ -88,7 +88,7 @@
 
         a {
           text-decoration: none;
-          color: $text-color-light;
+          color: $bg-dark;
           cursor: pointer;
 
           &:hover {

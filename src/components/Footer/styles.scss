@@ -18,7 +18,7 @@
       }
 
       svg {
-        color: $text-main-color;
+        color: $light-color;
         margin-right: 1rem;
         margin-top: 0.4375rem;
         opacity: 0.7;
@@ -88,7 +88,7 @@
           border-radius: 50%;
 
           &:hover {
-            color: $background-light;
+            color: $light-color;
             cursor: pointer;
           }
         }

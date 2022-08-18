@@ -16,7 +16,7 @@
     align-self: flex-end;
 
     .circle {
-      color: $main-light-color;
+      color: $main-color-light;
       font-size: 2rem;
       animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     }

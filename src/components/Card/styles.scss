@@ -1,7 +1,7 @@
 @import "../../styles/colors";
 
 .card {
-  background: $background-light;
+  background: $light-color;
   text-align: center;
   width: auto;
   padding-block: 1.25rem;
@@ -10,7 +10,7 @@
   box-shadow: 0.0625rem 0.0625rem 0.625rem #dddddd,
     -0.0625rem -0.0625rem 0.625rem #dddddd;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 200ms;
 
   svg {
     color: $main-color;
@@ -19,13 +19,13 @@
   }
 
   div {
-    color: $text-color-light;
+    color: $bg-dark;
     font-size: 1rem;
     font-weight: 500;
   }
 
   &:hover {
-    background: $background-dark;
+    background: $bg-light;
   }
 }
 
@@ -34,13 +34,13 @@
     padding: 1rem;
 
     div {
-      color: $text-color-light;
+      color: $bg-dark;
       font-size: 0.9rem;
       font-weight: 500;
     }
 
     &:hover {
-      background: $background-dark;
+      background: $bg-light;
     }
   }
 }

@@ -1,11 +1,11 @@
 @import "../../styles/colors";
 
 #search-result {
-  box-shadow: 0.1875rem 0.1875rem 0.3125rem $border-medium,
-    -0.1875rem -0.18755rem 0.3125rem $border-medium;
+  box-shadow: 0.1875rem 0.1875rem 0.3125rem $shadow-medium,
+    -0.1875rem -0.18755rem 0.3125rem $shadow-medium;
   border-radius: 0.3rem;
   margin-bottom: 1rem;
-  background: $background-light;
+  background: $light-color;
   cursor: pointer;
   transition: 200ms;
 
@@ -13,7 +13,7 @@
     padding: 1rem;
 
     .title {
-      color: $text-color-light;
+      color: $bg-dark;
       font-size: 1.5rem;
       font-weight: 500;
     }
@@ -24,6 +24,6 @@
   }
 
   &:hover {
-    background: $background-medium;
+    background: $bg-medium;
   }
 }

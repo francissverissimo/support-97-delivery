@@ -1,14 +1,14 @@
 @import "../../styles/colors";
 
 #search-page-content {
-  background-color: $background-medium;
+  background-color: $bg-medium;
   padding: 2rem 1.25rem;
   max-width: 75rem;
   margin-inline: auto;
 
   #numberResults {
-    background: $cancel-button;
-    color: $text-main-color;
+    background: $semi-dark-color;
+    color: $light-color;
     padding: 0.1rem 0.5rem;
     margin-bottom: 1rem;
     max-width: 10rem;

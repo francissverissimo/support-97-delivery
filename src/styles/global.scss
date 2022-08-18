@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-color: $main-color $background-medium;
+  scrollbar-color: $main-color $bg-medium;
 }
 
 *::-webkit-scrollbar {
@@ -12,13 +12,13 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: $background-medium;
+  background: $bg-medium;
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: $main-color;
   border-radius: 2rem;
-  border: 3px solid $background-medium;
+  border: 3px solid $bg-medium;
 }
 
 html {
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  background-color: $background-medium;
+  background-color: $bg-medium;
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
 }
