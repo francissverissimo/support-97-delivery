@@ -1,12 +1,12 @@
 import { scrollToTop } from "../../utils/handleUtils";
 import logoWhite from "../../assets/images/logo-white.svg";
-import "./styles.scss";
 import {
   CaretUp,
   FacebookLogo,
   InstagramLogo,
   YoutubeLogo,
 } from "phosphor-react";
+import "./styles.scss";
 
 export function Footer() {
   return (
@@ -68,6 +68,7 @@ export function Footer() {
             </a>
             {"© 2022"}
             <br />
+            <a href="https://storyset.com/people">{"Ilustrações > Storyset"}</a>
           </div>
           <div className="col-3">
             <div>
