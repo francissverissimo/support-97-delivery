@@ -77,6 +77,10 @@
             text-decoration: underline;
           }
         }
+
+        :last-child {
+          margin-top: 0.3rem;
+        }
       }
 
       .col-3 {
